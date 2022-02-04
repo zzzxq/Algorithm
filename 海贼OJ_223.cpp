@@ -28,7 +28,7 @@ void build(int ind, int l, int r) { //从下标1开始建树
     build(ind << 1, l, mid);
     build(ind << 1 | 1, mid + 1, r);
     edge[ind].val = edge[ind << 1].val + edge[ind << 1 | 1].val;
-    return;
+    return;//
 }
 void spread(int ind) {
     if (edge[ind].lazy) {
