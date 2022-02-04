@@ -74,7 +74,7 @@ int main() {
                 continue;
             }
             printf("%d\n", get_max(1, b, c));
-        }
+        } //
     }
     return 0;
 }
