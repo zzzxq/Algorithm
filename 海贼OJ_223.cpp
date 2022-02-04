@@ -49,7 +49,7 @@ void change(int ind, int l, int r, long long z) {
     spread(ind); //下沉lazy值
     int mid = (edge[ind].l + edge[ind].r) >> 1;
     if (l <= mid) change(ind << 1, l, r, z);
-    if (mid + 1 <= r) change(ind << 1 | 1, l, r, z);
+    if (mid + 1 <= r) change(ind << 1 | 1, l, r, z);  //这里一定是l,r，不然出错
     edge[ind].val = edge[ind << 1].val + edge[ind << 1 | 1].val;
     return;
 }
