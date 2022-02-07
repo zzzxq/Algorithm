@@ -22,15 +22,15 @@ int mod;
 void eval(int p, int add, int mul) {
     int len = tree[p].r - tree[p].l + 1;
     tree[p].sum = (tree[p].sum * mul + len * add) % mod;
-    tree[p].mul = tree[p].mul * mul % mod;
-    tree[p].add = (tree[p].add * mul + add) % mod;
+    tree[p].mul = tree[p].mul * mul % mod;  //乘法直接算
+    tree[p].add = (tree[p].add * mul + add) % mod;  //加法的lazy需要乘上mul， 因为 (3 + 2) * 3 = 3 * 3 + 2 * 3
     return;
 }
 
 void spread(int p) {
     eval(p << 1, tree[p].add, tree[p].mul);
     eval(p << 1 | 1, tree[p].add, tree[p].mul);
-    tree[p].mul = 1;
+    tree[p].mul = 1;  //乘法为1
     tree[p].add = 0;
     return;
 }
